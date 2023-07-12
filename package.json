@@ -1,0 +1,54 @@
+{
+	"name": "rembook-server-23",
+	"version": "1.0.0",
+	"description": "Server for Rembook'23",
+	"main": "/dist/server.js",
+	"scripts": {
+		"start": "node dist/server.js",
+		"compile": "tsc && node dist/server.js",
+		"build": "tsc",
+		"dev": "nodemon -e .ts --exec \"yarn compile\"",
+		"lint": "eslint --ext .js,.ts .",
+		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+		"prepare": "husky install",
+		"seed": "tsc && node dist/utils/seed.js"
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": [
+			"yarn format",
+			"yarn lint"
+		]
+	},
+	"repository": "https://github.com/delta/rembook-server-23.git",
+	"author": "Delta Force",
+	"license": "MIT",
+	"dependencies": {
+		"@fastify/cookie": "^8.3.0",
+		"@fastify/cors": "^8.2.1",
+		"@fastify/static": "^6.10.1",
+		"bcrypt": "^5.1.0",
+		"cross-fetch": "^3.1.5",
+		"dotenv": "^16.0.3",
+		"fastify": "^4.15.0",
+		"fastify-multer": "^2.0.3",
+		"jsonwebtoken": "^9.0.0",
+		"mongoose": "^7.0.3",
+		"nodemailer": "^6.9.1"
+	},
+	"devDependencies": {
+		"@sinclair/typebox": "^0.26.8",
+		"@types/jsonwebtoken": "^9.0.1",
+		"@types/node": "^18.15.11",
+		"@types/nodemailer": "^6.4.7",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
+		"eslint": "^8.37.0",
+		"eslint-config-prettier": "^8.8.0",
+		"husky": "^8.0.0",
+		"lint-staged": "^13.2.0",
+		"nodemon": "^2.0.22",
+		"pino-pretty": "^10.0.0",
+		"prettier": "^2.8.7",
+		"typescript": "^5.0.3"
+	}
+}

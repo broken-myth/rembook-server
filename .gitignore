@@ -1,0 +1,13 @@
+dist
+node_modules
+package-lock.json
+yarn-error.log
+.env
+config/config.ts
+data
+
+public/images/memories/*
+public/images/profiles/*
+
+!public/images/memories/temp.png
+!public/images/profiles/temp.png

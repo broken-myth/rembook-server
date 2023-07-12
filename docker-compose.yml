@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  server:
+    container_name: rembook_server_23
+    image: rembook_server_23
+    build:
+      context: .
+    ports:
+      - "${PORT}:4000"
+    env_file:
+      - .env
+    volumes:
+      - ./public:/app/public
+    depends_on:
+      - db
+    restart: always
+  db:
+    container_name: rembook_db_23
+    image: mongo:latest
+    volumes:
+      - ./data/mongoData:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=rembook-23
+    restart: always
+
